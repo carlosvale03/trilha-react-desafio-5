@@ -25,7 +25,8 @@ export default function Index({ posts, globalData }) {
             >
               <Link
                 as={`/posts/${post.id}`}
-                href={`/posts/${post.id}`}
+                href={`/posts/${post.id}`} 
+                legacyBehavior
               >
                 <a className="py-6 lg:py-10 px-6 lg:px-16 block focus:outline-none focus:ring-4">
                   {post.created_ate && (
@@ -62,7 +63,6 @@ export default function Index({ posts, globalData }) {
 export async function getServerSideProps() {
   const posts = await getPosts();
   const globalData = getGlobalData()
-
 
   return { props: { posts, globalData } };
 }
